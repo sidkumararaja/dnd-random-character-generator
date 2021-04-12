@@ -1,0 +1,14 @@
+{
+    "races": ["Dragonborn","Dwarf","Elf","Gnome","Half-Elf","Half-Orc","Halfling","Human","Tiefling"],
+    "classes": ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"],
+    "traits": ["adventurous","ambitious","arrogant","bold","bossy","brave","careless","cautious","cheerful",
+        "clever","clumsy","compassionate","conceited","courageous","creative","curious","daring","devout","disgruntled","energetic",
+        "faithful","friendly","fun-loving","generous","gentle","grouchy","happy","helpful","honest","honorable","humble","intelligent",
+        "judgmental","kind","lazy","loyal","manipulative","melancholy","mischievous","naïve","narcissistic","obnoxious","overconfident",
+        "peaceful","perfectionist","pleasant","proud","quiet",
+        "respectful","rude","sad","sarcastic","selfish","serious","shy","smart","stubborn","superstitious","temperamental",
+        "timid","tricky","unhappy","unstable","vain","wild","wise","witty"
+        ],
+        "things": ["alchemy","ale","baths","cake","caves","cheese","dancing","danger","exploring","fighting","graveyards","hunting",
+            "horse riding","mazes","mushrooms","music","puzzles","poetry","snow","spiders","war"]
+}
