@@ -1,43 +1,291 @@
-/* Some styling to make the output look pretty */
+@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Autour+One&family=Balsamiq+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Autour+One&display=swap");
+/* ─── TOKENS ─────────────────────────────────────────────────────────────── */
+:root {
+  --ink:        #1c1208;
+  --ink-faded:  #4a3728;
+  --parchment:  #f2e8ce;
+  --parchment-dark: #e0ceaa;
+  --red:        #8b1a1a;
+  --gold:       #b8922a;
+  --shadow:     rgba(28, 18, 8, 0.18);
+}
+
+/* ─── RESET & BASE ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background-color: #CBCDBA;
+  min-height: 100vh;
+  background-color: #2a1f0e;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 60px,
+      rgba(0,0,0,0.04) 60px,
+      rgba(0,0,0,0.04) 61px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(0,0,0,0.04) 60px,
+      rgba(0,0,0,0.04) 61px
+    );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem 4rem;
+  font-family: "Crimson Pro", Georgia, serif;
+  color: var(--ink);
 }
 
-#content {
-  background-color: #CBCDBA;
-  margin: auto;
-  width: 75%;
-  padding: 10px;
+/* ─── PAGE TITLE ─────────────────────────────────────────────────────────── */
+.page-title {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  color: var(--parchment);
   text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  letter-spacing: 0.02em;
 }
 
-h1 {
-  font-family: "Autour One", cursive;
-  font-size: 2.3em;
+/* ─── CARD ───────────────────────────────────────────────────────────────── */
+.card {
+  background-color: var(--parchment);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  width: 100%;
+  max-width: 640px;
+  border-radius: 2px;
+  box-shadow:
+    0 2px 0 var(--parchment-dark),
+    0 4px 0 #c4b08a,
+    0 8px 24px rgba(0,0,0,0.5),
+    inset 0 0 60px rgba(180,140,80,0.12);
+  padding: 2.5rem 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
-#generate-btn {
-  background-color: #e7e7e7;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  border-radius: 4px;
+/* Corner ornaments */
+.card::before,
+.card::after {
+  content: "✦";
+  position: absolute;
+  font-size: 1rem;
+  color: var(--gold);
+  opacity: 0.6;
+}
+.card::before { top: 0.8rem; left: 0.9rem; }
+.card::after  { bottom: 0.8rem; right: 0.9rem; }
+
+/* ─── HEADER ─────────────────────────────────────────────────────────────── */
+.char-header {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.2em;
-  font-family: "Balsamiq Sans", cursive;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--parchment-dark);
+  margin-bottom: 1.4rem;
+  position: relative;
 }
 
-#generate-btn:hover {
-  background-color: #f7f7f7;
+.char-header::after {
+  content: "⁕";
+  position: absolute;
+  bottom: -0.65rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--parchment);
+  padding: 0 0.5rem;
+  color: var(--gold);
+  font-size: 1rem;
 }
 
-#character-desc {
-  font-family: "Autour One", cursive;
-  font-size: 1.5em;
+.char-name {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: var(--red);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.char-subtitle {
+  font-family: "IM Fell English", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-faded);
+  margin-top: 0.2rem;
+}
+
+/* ─── SECTION LABELS ─────────────────────────────────────────────────────── */
+.section-label {
+  font-family: "IM Fell English", serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+/* ─── BACKSTORY ──────────────────────────────────────────────────────────── */
+.char-hook {
+  font-family: "IM Fell English", serif;
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.5;
+  color: var(--ink-faded);
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--parchment-dark);
+}
+
+/* ─── TRAITS / FLAW / BOND ───────────────────────────────────────────────── */
+.traits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--parchment-dark);
+}
+
+.trait-group { display: flex; flex-direction: column; }
+
+.trait-group.full { grid-column: 1 / -1; }
+
+.trait-group p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+#char-traits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#char-traits li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+}
+
+#char-traits li::before {
+  content: "◆";
+  font-size: 0.45rem;
+  color: var(--gold);
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+}
+
+/* ─── ABILITY SCORES ─────────────────────────────────────────────────────── */
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.stat-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--parchment-dark);
+  border-radius: 2px;
+  padding: 0.45rem 0.2rem 0.35rem;
+  background: rgba(180, 140, 80, 0.07);
+}
+
+.stat-label {
+  font-family: "IM Fell English", serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.stat-value {
+  font-family: "Crimson Pro", serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.stat-mod {
+  font-family: "IM Fell English", serif;
+  font-size: 0.75rem;
+  color: var(--ink-faded);
+  margin-top: 0.1rem;
+}
+
+/* ─── BUTTONS ────────────────────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  flex: 1;
+  font-family: "IM Fell English", serif;
+  font-size: 1rem;
+  padding: 0.65rem 1rem;
+  border-radius: 2px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+  letter-spacing: 0.02em;
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--red);
+  color: var(--parchment);
+  border-color: #6b1010;
+  box-shadow: 0 2px 0 #6b1010, 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover { background: #a02020; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-faded);
+  border-color: var(--parchment-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--parchment-dark);
+  color: var(--ink);
+}
+
+/* ─── DISCLAIMER ─────────────────────────────────────────────────────────── */
+.disclaimer {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-family: "IM Fell English", serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: rgba(242, 232, 206, 0.35);
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .card { padding: 1.8rem 1.4rem 1.5rem; }
+  .traits-grid { grid-template-columns: 1fr; }
+  .trait-group.full { grid-column: 1; }
+}
+
+/* ─── REDUCED MOTION ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
 }

@@ -4,18 +4,58 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="favicon.ico" />
-
-    <title>D&D Random Character Generator</title>
-
+    <title>D&D Character Generator</title>
     <link rel="stylesheet" href="style.css" />
-
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div id="content">
-      <h1>A Random Character Generator for Dungeons and Dragons</h1>
-      <button id="generate-btn" onclick="displayCharacter()">Generate !</button>
-      <p id="character-desc"></p>
+
+    <h1 class="page-title">D&amp;D Character Generator</h1>
+
+    <div class="card">
+
+      <header class="char-header">
+        <div class="char-name" id="char-name">—</div>
+        <div class="char-subtitle" id="char-subtitle"></div>
+      </header>
+
+      <div class="char-hook">
+        <span class="section-label">Backstory</span>
+        <p id="char-hook"></p>
+      </div>
+
+      <div class="traits-grid">
+
+        <div class="trait-group full">
+          <span class="section-label">Personality</span>
+          <ul id="char-traits"></ul>
+        </div>
+
+        <div class="trait-group">
+          <span class="section-label">Flaw</span>
+          <p id="char-flaw"></p>
+        </div>
+
+        <div class="trait-group">
+          <span class="section-label">Bond</span>
+          <p id="char-bond"></p>
+        </div>
+
+      </div>
+
+      <div>
+        <span class="section-label">Ability Scores</span>
+        <div class="stats-row" id="char-stats"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="generate-btn" onclick="roll()">Roll Character</button>
+        <button class="btn btn-secondary" id="copy-btn" onclick="copyCharacter()">Copy to Clipboard</button>
+      </div>
+
     </div>
+
+    <p class="disclaimer">A starting point, not a final word. Build from here.</p>
+
   </body>
 </html>
