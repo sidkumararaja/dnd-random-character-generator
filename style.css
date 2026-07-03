@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap");
 
 /* ─── TOKENS ─────────────────────────────────────────────────────────────── */
 :root {
@@ -104,7 +104,7 @@ body {
 }
 
 .char-name {
-  font-family: "UnifrakturMaguntia", cursive;
+  font-family: "MedievalSharp", cursive;
   font-size: clamp(2rem, 8vw, 3rem);
   color: var(--red);
   line-height: 1.1;
